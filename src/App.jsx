@@ -7,13 +7,20 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import BasicTable from './pages/BasicTable';
+import { Route, Routes } from 'react-router';
+import Detail from './pages/Detail';
+import axios from 'axios';
 
 function App() {
-  console.log(data)
+  axios.get('http://localhost:5173/detail/1').then((result)=>{console.log(result.data)})
   return (
     <div>
       <Navigation/>
-      <BasicTable data={data}/>
+      
+      <Routes>
+      <Route path="/" element={<BasicTable data={data}/>} />
+      <Route path="/detail/:id" element={<Detail data={data}/>} />
+    </Routes>
     </div>
   );
 }
