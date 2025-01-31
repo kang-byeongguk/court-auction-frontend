@@ -16,7 +16,7 @@ function Detail() {
     // detail/1 주소로 GET 요청
     // (id 값이 있을 경우는 detail/${id} 로 변경)
     axios
-      .get("http://127.0.0.1:8000/detail/1")
+      .get("http://127.0.0.1:8000/detail/"+id)
       .then((response) => {
         setItem(response.data);
       })

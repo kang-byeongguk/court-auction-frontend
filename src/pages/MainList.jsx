@@ -1,59 +1,44 @@
 // src/pages/MainList.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
-
-import {
-  formatDate,
-  formatPrice,
-  getSaleStatus,
-  truncateAddress,
-} from '../functions/functions';
 import FilterBar from '../components/FilterBar';
+import { formatDate, formatPrice, getSaleStatus, truncateAddress } from '../functions/functions';
 
 function MainList() {
   const navigate = useNavigate();
-  const [filteredData, setFilteredData] = useState([]);
+  const [listData, setListData] = useState([]);
 
-  // 초기 로드: 전체 데이터 (필터 없이)
+  // 초기 로드 시 전체 데이터
   useEffect(() => {
-    fetchFilteredData({
-      jwn_lst: '',
-      property_type: '',
-      onlyNotExpired: false,
-    });
+    fetchFilteredData({});
   }, []);
 
+  // 필터에 맞춰 서버 데이터 재요청
   const fetchFilteredData = async (filterParams) => {
     try {
-      const { jwn_lst, property_type, onlyNotExpired } = filterParams;
-      const nowTime = new Date().toISOString(); // 시간까지 포함
+      const { jwn_lst, property_type, only_not_expired } = filterParams;
+      const nowTime = new Date().toISOString();
 
       const params = {
         jwn_lst: jwn_lst || undefined,
         property_type: property_type || undefined,
-        onlyNotExpired: onlyNotExpired || undefined,
-        nowTime: onlyNotExpired ? nowTime : undefined,
+        only_not_expired: only_not_expired || undefined,
+        now_time: only_not_expired ? nowTime : undefined,
       };
 
       const response = await axios.get('http://127.0.0.1:8000/list/', { params });
-      setFilteredData(response.data);
+      // 주의: 서버 응답 구조에 맞춰 results나 data를 사용
+      setListData(response.data.results);
     } catch (error) {
-      console.error('데이터 로드 실패:', error);
+      console.error(error);
     }
-  };
-
-  const handleFilter = (filterParams) => {
-    fetchFilteredData(filterParams);
   };
 
   return (
     <>
-      {/* 필터 컴포넌트 */}
-      <FilterBar onFilter={handleFilter} />
-
-      {/* 테이블 표시 */}
+      <FilterBar onFilter={fetchFilteredData} />
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -67,32 +52,21 @@ function MainList() {
           </tr>
         </thead>
         <tbody>
-          {filteredData && filteredData.length > 0 ? (
-            filteredData.map((item, index) => {
-              // UI에는 'YYYY-MM-DD'만
+          {listData && listData.length > 0 ? (
+            listData.map((item, idx) => {
               const saleDateForDisplay = formatDate(item.sale_date);
-              // 실제 비교는 시간까지 포함
               const saleStatus = getSaleStatus(item.sale_date);
-
               return (
-                <tr key={index} onClick={() => navigate(`/detail/${item.id}`)}>
+                <tr key={idx} onClick={() => navigate(`/detail/${item.id}`)}>
                   <td>{item.case_num}</td>
                   <td>{item.property_type}</td>
                   <td>{truncateAddress(item.location)}</td>
                   <td>{formatPrice(item.minimum_sale_prc)}</td>
                   <td>{formatPrice(item.appraisal_val)}</td>
                   <td>
-                    {saleDateForDisplay /* YYYY-MM-DD만 표시 */}
-                    {saleStatus === '마감후' && (
-                      <span style={{ color: 'blue', marginLeft: 8 }}>
-                        마감후
-                      </span>
-                    )}
-                    {saleStatus === '마감전' && (
-                      <span style={{ color: 'red', marginLeft: 8 }}>
-                        마감전
-                      </span>
-                    )}
+                    {saleDateForDisplay}
+                    {saleStatus === '마감후' && <span style={{ color: 'blue', marginLeft: 8 }}>마감후</span>}
+                    {saleStatus === '마감전' && <span style={{ color: 'red', marginLeft: 8 }}>마감전</span>}
                   </td>
                   <td>{item.jwn_lst}</td>
                 </tr>
