@@ -18,6 +18,7 @@ div{
   position:fixed;
   top:0;
   left:0;
+  z-index:999;
 }
 /* nav-container 클래스로도 스타일 가능 */
 .nav-container {
@@ -28,6 +29,8 @@ div{
   width:100%;
   height:100%;
   padding: 0 30px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .nav-item {
@@ -38,11 +41,14 @@ div{
 .main-background{
   background-color:#f2f2f2;
 }
+.main-container {
+  margin-top: 50px; /* nav-background의 height와 동일 */
+  padding: 1rem;
+}
 
 @media screen and (min-width:768px){
   .nav-container,.main-container{
     width:750px;
-    margin: 0 auto;
     padding: 0 15px;
 
   }
@@ -51,14 +57,12 @@ div{
 @media screen and (min-width:992px){
   .nav-container,.main-container{
     width:970px;
-    margin: 0 auto;
     padding: 0 15px;
   }
 }
 @media screen and (min-width:1200px){
   .nav-container,.main-container{
     width:1170px;
-    margin: 0 auto;
     padding: 0 15px;
   }
 }

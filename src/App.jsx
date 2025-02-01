@@ -11,6 +11,7 @@ function App() {
   return (
     <div >
       <Navigation />
+      
       <Routes>
         <Route path="/" element={<MainList />}/>
         <Route path="/detail/:id" element={<Detail />} />

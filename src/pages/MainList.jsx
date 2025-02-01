@@ -1,24 +1,23 @@
 // src/pages/MainList.jsx
+
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
-import Table from 'react-bootstrap/Table';
-import Pagination from 'react-bootstrap/Pagination';
 import FilterBar from '../components/FilterBar';
 import { formatDate, formatPrice, getSaleStatus, truncateAddress } from '../functions/functions';
 import './MainList.scss';
+
 function MainList() {
   const navigate = useNavigate();
 
   const [listData, setListData] = useState([]);
-  const [count, setCount] = useState(0);          // 전체 아이템 개수
+  const [count, setCount] = useState(0);         // 전체 아이템 개수
   const [currentPage, setCurrentPage] = useState(1);  // 현재 페이지
   const [filters, setFilters] = useState({});     // 필터 상태(법원, 물건종류 등)
 
-  // 페이지당 보여줄 데이터 개수 (서버에서도 동일하게 맞추는 것이 일반적)
+  // 페이지당 보여줄 데이터 개수
   const pageSize = 10;
 
-  // 컴포넌트가 마운트되거나 currentPage, filters 변경 시 호출
   useEffect(() => {
     fetchFilteredData(filters, currentPage);
   }, [filters, currentPage]);
@@ -38,14 +37,14 @@ function MainList() {
       };
 
       const response = await axios.get('http://127.0.0.1:8000/list/', { params });
-      setListData(response.data.results); 
+      setListData(response.data.results);
       setCount(response.data.count);  // 전체 아이템 개수
     } catch (error) {
       console.error(error);
     }
   };
 
-  // FilterBar에서 필터 적용하면 필터 상태 저장 & 페이지를 1로 초기화
+  // FilterBar에서 필터 적용
   const handleFilter = (newFilters) => {
     setFilters(newFilters);
     setCurrentPage(1);
@@ -64,7 +63,8 @@ function MainList() {
       {/* 필터 컴포넌트 */}
       <FilterBar onFilter={handleFilter} />
 
-      <table className='main-table'>
+      {/* 테이블 */}
+      <table className="main-table">
         <thead>
           <tr>
             <th className="sample">사건번호</th>
@@ -82,7 +82,11 @@ function MainList() {
               const saleDateForDisplay = formatDate(item.sale_date);
               const saleStatus = getSaleStatus(item.sale_date);
               return (
-                <tr className="table-row" key={idx} onClick={() => navigate(`/detail/${item.id}`)}>
+                <tr className="table-row"
+                  key={idx}
+                  onClick={() => navigate(`/detail/${item.id}`)}
+                  style={{ cursor: 'pointer' }}
+                >
                   <td>{item.case_num}</td>
                   <td>{item.property_type}</td>
                   <td>{truncateAddress(item.location)}</td>
@@ -113,44 +117,49 @@ function MainList() {
             </tr>
           )}
         </tbody>
-        </table>
-      {/* </Table> */}
+      </table>
 
-      {/* 페이지네이션 */}
-      <Pagination className="justify-content-center">
+      {/* 페이지네이션 (순수 React/HTML) */}
+      <div className="pagination-container" style={{ textAlign: 'center', marginTop: '1rem' }}>
         {/* 뒤로 3칸 이동 */}
-        <Pagination.Item
+        <button
           disabled={currentPage <= 1}
           onClick={() => handlePageChange(Math.max(1, currentPage - 3))}
         >
           &laquo;3
-        </Pagination.Item>
+        </button>
 
         {/* 뒤로 1칸 이동 */}
-        <Pagination.Prev
-          onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
+        <button
           disabled={currentPage <= 1}
-        />
+          onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
+          style={{ marginLeft: '5px' }}
+        >
+          이전
+        </button>
 
-        {/* 현재 페이지 / 전체 페이지 표시 (버튼 대신 단순 표시) */}
-        <Pagination.Item active>
+        {/* 현재 페이지 / 전체 페이지 표시 */}
+        <span style={{ margin: '0 8px' }}>
           {currentPage} / {totalPages}
-        </Pagination.Item>
+        </span>
 
         {/* 앞으로 1칸 이동 */}
-        <Pagination.Next
-          onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
+        <button
           disabled={currentPage >= totalPages}
-        />
+          onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
+        >
+          다음
+        </button>
 
         {/* 앞으로 3칸 이동 */}
-        <Pagination.Item
+        <button
           disabled={currentPage >= totalPages}
           onClick={() => handlePageChange(Math.min(totalPages, currentPage + 3))}
+          style={{ marginLeft: '5px' }}
         >
           3&raquo;
-        </Pagination.Item>
-      </Pagination>
+        </button>
+      </div>
     </div>
   );
 }

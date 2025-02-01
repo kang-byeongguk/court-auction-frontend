@@ -1,7 +1,9 @@
 .main-container {
     background: white;
     width: 100%;
-    margin: 0 auto;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:50px;
     border-radius:10px;
     
   }
@@ -13,6 +15,6 @@
 
   }
   
-  .table-row{
+  .table-row td{
     border-top: 1px solid #dddddd;
   }
