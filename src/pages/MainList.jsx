@@ -6,6 +6,7 @@ import axios from 'axios';
 import FilterBar from '../components/FilterBar';
 import { formatDate, formatPrice, getSaleStatus, truncateAddress } from '../functions/functions';
 import './MainList.scss';
+import { useSelector } from 'react-redux';
 
 function MainList() {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ function MainList() {
   const [count, setCount] = useState(0);         // 전체 아이템 개수
   const [currentPage, setCurrentPage] = useState(1);  // 현재 페이지
   const [filters, setFilters] = useState({});     // 필터 상태(법원, 물건종류 등)
-
+  const url =useSelector(state=>state.url)
   // 페이지당 보여줄 데이터 개수
   const pageSize = 10;
 
@@ -36,7 +37,7 @@ function MainList() {
         page, // 페이지 번호
       };
 
-      const response = await axios.get('http://127.0.0.1:8000/list/', { params });
+      const response = await axios.get(url+'list/', { params });
       setListData(response.data.results);
       setCount(response.data.count);  // 전체 아이템 개수
     } catch (error) {

@@ -4,17 +4,18 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 import { formatDate, formatPrice } from "../functions/functions";
+import { useSelector } from "react-redux";
 
 function Detail() {
   const { id } = useParams();
 
   const [item, setItem] = useState(null);
   const [error, setError] = useState(null);
-
+  const url = useSelector(state=>state.url)
   useEffect(() => {
     // detail/:id 주소로 GET 요청
     axios
-      .get("http://127.0.0.1:8000/detail/" + id)
+      .get(url+"detail/" + id)
       .then((response) => {
         setItem(response.data);
       })
