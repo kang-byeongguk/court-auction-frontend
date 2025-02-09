@@ -73,7 +73,7 @@ export default function Login() {
           </div>
         </div>
 
-        <div className="login-signup">
+        <div className="login-signup" onClick={()=>{navigate('/signup')}}>
           아직 체스턴 회원이 아닌가요?
         </div>
       </div>

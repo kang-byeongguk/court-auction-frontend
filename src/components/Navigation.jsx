@@ -9,7 +9,7 @@ export default function Navigation() {
       <div className="nav-item" onClick={()=>{navigate('/')}}>홈</div>
       <div style={{flexGrow:1}}></div>
       <div className="nav-item" onClick={()=>{navigate("/login")}}>로그인</div>
-      <div className="nav-item">회원가입</div>
+      <div className="nav-item" onClick={()=>{navigate('/signup')}}>회원가입</div>
     </nav>
     </div>
   );
