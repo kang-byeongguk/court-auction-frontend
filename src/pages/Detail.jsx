@@ -6,32 +6,28 @@ import axios from "axios";
 import { formatDate, formatPrice } from "../functions/functions";
 import { useSelector } from "react-redux";
 import { useQuery } from "@tanstack/react-query";
+import "./Detail.scss"; 
 
 function Detail() {
   const { id } = useParams();
   const url = useSelector((state) => state.url);
 
-  // 디버깅: 넘어온 id와 API endpoint 확인
-  console.log("Detail 페이지 id:", id);
-  console.log("API endpoint:", url + "detail/" + id);
-
+  // useQuery로 API 호출 (id는 숫자로 변환)
   const { data: item, isLoading, error } = useQuery({
     queryKey: ["detail", id, url],
     queryFn: async () => {
-      // useParams()가 문자열을 반환하므로, 숫자로 변환하여 API에 요청합니다.
       const numericId = Number(id);
       const response = await axios.get(url + "detail/" + numericId);
       return response.data;
     },
-    enabled: !!url,                  // url이 유효할 때만 쿼리 실행
-    refetchOnWindowFocus: false,       // 브라우저 포커스 시 자동 재요청 비활성화
-    refetchOnReconnect: false,         // 네트워크 재연결 시 자동 재요청 비활성화
+    enabled: !!url,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
   });
 
   if (isLoading) return <div>로딩 중...</div>;
   if (error) return <div>데이터를 불러오는 중 오류가 발생했습니다.</div>;
 
-  // API 응답 데이터를 구조 분해 할당
   const {
     jwn_lst,
     case_num,
@@ -53,12 +49,12 @@ function Detail() {
   } = item;
 
   return (
-    <div style={{ margin: "2rem" }}>
-      {/* 기본정보 */}
+    <div className="detail-container">
+      {/* 기본정보 섹션 */}
       <div>
-        <h4>기본정보</h4>
+        <h4 className="section-title">기본정보</h4>
         <hr />
-        <table border="1" style={{ borderCollapse: "collapse", width: "100%" }}>
+        <table className="detail-table">
           <tbody>
             <tr>
               <th style={{ width: "30%" }}>법원정보</th>
@@ -124,12 +120,12 @@ function Detail() {
         </table>
       </div>
 
-      {/* 경매정보 */}
-      <div style={{ marginTop: "2rem" }}>
-        <h4>경매정보</h4>
+      {/* 경매정보 섹션 */}
+      <div className="section">
+        <h4 className="section-title">경매정보</h4>
         <hr />
         {due_dates && due_dates.length > 0 && (
-          <table border="1" style={{ borderCollapse: "collapse", width: "100%" }}>
+          <table className="detail-table">
             <thead>
               <tr>
                 <th style={{ width: "20%" }}>매각기일</th>
@@ -154,12 +150,12 @@ function Detail() {
         )}
       </div>
 
-      {/* 세부정보 */}
-      <div style={{ marginTop: "2rem" }}>
-        <h4>세부정보</h4>
+      {/* 세부정보 섹션 */}
+      <div className="section">
+        <h4 className="section-title">세부정보</h4>
         <hr />
         {case_details && case_details.length > 0 && (
-          <table border="1" style={{ borderCollapse: "collapse", width: "100%" }}>
+          <table className="detail-table case-details-table">
             <thead>
               <tr>
                 <th style={{ width: "10%" }}>리스트번호</th>
