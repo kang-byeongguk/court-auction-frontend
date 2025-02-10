@@ -1,62 +1,64 @@
 // src/pages/MainList.jsx
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
 import FilterBar from '../components/FilterBar';
 import { formatDate, formatPrice, getSaleStatus, truncateAddress } from '../functions/functions';
 import './MainList.scss';
 import { useSelector } from 'react-redux';
+import { useQuery } from '@tanstack/react-query';
 
 function MainList() {
   const navigate = useNavigate();
+  const url = useSelector((state) => state.url);
 
-  const [listData, setListData] = useState([]);
-  const [count, setCount] = useState(0);         // 전체 아이템 개수
-  const [currentPage, setCurrentPage] = useState(1);  // 현재 페이지
-  const [filters, setFilters] = useState({});     // 필터 상태(법원, 물건종류 등)
-  const url =useSelector(state=>state.url)
+  // 필터와 페이지 번호는 로컬 상태로 관리
+  const [currentPage, setCurrentPage] = useState(1);
+  const [filters, setFilters] = useState({});
+  
   // 페이지당 보여줄 데이터 개수
   const pageSize = 10;
 
-  useEffect(() => {
-    fetchFilteredData(filters, currentPage);
-  }, [filters, currentPage]);
-
-  // 서버에 데이터 요청
-  const fetchFilteredData = async (filterParams, page) => {
-    try {
-      const { jwn_lst, property_type, only_not_expired } = filterParams;
+  // react-query를 이용해 데이터 요청
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['list', filters, currentPage, url],
+    queryFn: async () => {
+      const { jwn_lst, property_type, only_not_expired } = filters;
       const nowTime = new Date().toISOString();
 
       const params = {
         jwn_lst: jwn_lst || undefined,
         property_type: property_type || undefined,
         only_not_expired: only_not_expired || undefined,
+        // only_not_expired가 true일 때 현재 시간을 전달
         now_time: only_not_expired ? nowTime : undefined,
-        page, // 페이지 번호
+        page: currentPage,
       };
 
-      const response = await axios.get(url+'list/', { params });
-      setListData(response.data.results);
-      setCount(response.data.count);  // 전체 아이템 개수
-    } catch (error) {
-      console.error(error);
-    }
-  };
+      const response = await axios.get(url + 'list/', { params });
+      return response.data;
+    },
+    enabled: !!url, // url이 유효할 때만 쿼리 실행
+  });
 
-  // FilterBar에서 필터 적용
+  // 필터 적용 핸들러: 필터 변경 시 페이지 번호를 1로 초기화
   const handleFilter = (newFilters) => {
     setFilters(newFilters);
     setCurrentPage(1);
   };
 
-  // 페이지 이동
+  // 페이지 이동 핸들러
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
-  // 전체 페이지 수 계산
+  if (isLoading) return <div>로딩 중...</div>;
+  if (error) return <div>데이터를 불러오는 중 오류가 발생했습니다.</div>;
+
+  // react-query의 data에서 results와 count를 추출
+  const listData = data.results;
+  const count = data.count;
   const totalPages = Math.ceil(count / pageSize);
 
   return (
@@ -83,7 +85,8 @@ function MainList() {
               const saleDateForDisplay = formatDate(item.sale_date);
               const saleStatus = getSaleStatus(item.sale_date);
               return (
-                <tr className="table-row"
+                <tr
+                  className="table-row"
                   key={idx}
                   onClick={() => navigate(`/detail/${item.id}`)}
                   style={{ cursor: 'pointer' }}

@@ -1,53 +1,55 @@
 // src/pages/Detail.jsx
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 import { formatDate, formatPrice } from "../functions/functions";
 import { useSelector } from "react-redux";
+import { useQuery } from "@tanstack/react-query";
 
 function Detail() {
   const { id } = useParams();
+  const url = useSelector((state) => state.url);
 
-  const [item, setItem] = useState(null);
-  const [error, setError] = useState(null);
-  const url = useSelector(state=>state.url)
-  useEffect(() => {
-    // detail/:id 주소로 GET 요청
-    axios
-      .get(url+"detail/" + id)
-      .then((response) => {
-        setItem(response.data);
-      })
-      .catch((err) => {
-        console.error(err);
-        setError(err);
-      });
-  }, [id]);
+  // 디버깅: 넘어온 id와 API endpoint 확인
+  console.log("Detail 페이지 id:", id);
+  console.log("API endpoint:", url + "detail/" + id);
 
-  // 로딩 중 또는 에러 시 간단 처리
+  const { data: item, isLoading, error } = useQuery({
+    queryKey: ["detail", id, url],
+    queryFn: async () => {
+      // useParams()가 문자열을 반환하므로, 숫자로 변환하여 API에 요청합니다.
+      const numericId = Number(id);
+      const response = await axios.get(url + "detail/" + numericId);
+      return response.data;
+    },
+    enabled: !!url,                  // url이 유효할 때만 쿼리 실행
+    refetchOnWindowFocus: false,       // 브라우저 포커스 시 자동 재요청 비활성화
+    refetchOnReconnect: false,         // 네트워크 재연결 시 자동 재요청 비활성화
+  });
+
+  if (isLoading) return <div>로딩 중...</div>;
   if (error) return <div>데이터를 불러오는 중 오류가 발생했습니다.</div>;
-  if (!item) return <div>로딩 중...</div>;
 
-  // item이 정상적으로 존재하면 구조분해 할당
+  // API 응답 데이터를 구조 분해 할당
   const {
-    jwn_lst,               // 법원정보
-    case_num,              // 사건번호
-    property_num,          // 물건번호
-    property_type,         // 물건종류
-    appraisal_val,         // 감정가
-    minimum_sale_prc,      // 최저매각가격
-    bidding_method,        // 매각방법
-    sale_date,             // 매각기일
-    prprty_notes,          // 비고
-    location,              // 건물위치
-    responsible_total,     // 경매계/담당법원 정보
-    case_filing_date,      // 소송 접수일
-    auction_strt_date,     // 경매 시작일
-    dmnd_date,             // 배당요구종기일
-    claim_amt,             // 청구금액
-    due_dates,             // 경매정보 (배열)
-    case_details           // 세부정보 (배열)
+    jwn_lst,
+    case_num,
+    property_num,
+    property_type,
+    appraisal_val,
+    minimum_sale_prc,
+    bidding_method,
+    sale_date,
+    prprty_notes,
+    location,
+    responsible_total,
+    case_filing_date,
+    auction_strt_date,
+    dmnd_date,
+    claim_amt,
+    due_dates,
+    case_details,
   } = item;
 
   return (
@@ -56,10 +58,7 @@ function Detail() {
       <div>
         <h4>기본정보</h4>
         <hr />
-        <table
-          border="1"
-          style={{ borderCollapse: "collapse", width: "100%" }}
-        >
+        <table border="1" style={{ borderCollapse: "collapse", width: "100%" }}>
           <tbody>
             <tr>
               <th style={{ width: "30%" }}>법원정보</th>
@@ -130,10 +129,7 @@ function Detail() {
         <h4>경매정보</h4>
         <hr />
         {due_dates && due_dates.length > 0 && (
-          <table
-            border="1"
-            style={{ borderCollapse: "collapse", width: "100%" }}
-          >
+          <table border="1" style={{ borderCollapse: "collapse", width: "100%" }}>
             <thead>
               <tr>
                 <th style={{ width: "20%" }}>매각기일</th>
@@ -163,10 +159,7 @@ function Detail() {
         <h4>세부정보</h4>
         <hr />
         {case_details && case_details.length > 0 && (
-          <table
-            border="1"
-            style={{ borderCollapse: "collapse", width: "100%" }}
-          >
+          <table border="1" style={{ borderCollapse: "collapse", width: "100%" }}>
             <thead>
               <tr>
                 <th style={{ width: "10%" }}>리스트번호</th>
