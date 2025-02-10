@@ -49,7 +49,7 @@
 
 - **상세페이지** : 경매 물건에 대한 상세정보 제공
 
-![제작페이지](https://blog.kakaocdn.net/dn/Ccjse/btsL3l5I04g/UKgBDmIkrck7U00koIrvkK/img.png)
+![상세페이지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FkTzfP%2FbtsMdoGiUJm%2FU5ZATYzWkoMzzMWlBr00Qk%2Fimg.png)
 
 - **로그인 화면** : 로그인 기능 제공
 
