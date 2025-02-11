@@ -27,7 +27,7 @@ function FilterBar({ onFilter }) {
     onFilter({
       jwn_lst: selectedJwnLst,
       property_type: selectedPropertyType,
-      onlyNotExpired,
+      only_not_expired:onlyNotExpired
     });
   };
 
