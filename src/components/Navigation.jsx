@@ -11,11 +11,11 @@ export default function Navigation() {
         <div style={{ flexGrow: 1 }}></div>
         <div 
           className="nav-item" 
-          onClick={() => { window.location.href = "https://forms.gle/7JD5QhHcADGv3h7W9"; }}
+          onClick={() => navigate('/login')}
         >
           로그인
         </div>
-        <div className="nav-item" onClick={() => navigate('/signup')}>회원가입</div>
+        <div className="nav-item" onClick={() => { window.location.href = "https://forms.gle/p7yHK9VgE1588KXT9"; }}>회원가입</div>
       </nav>
     </div>
   );

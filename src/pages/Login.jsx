@@ -73,7 +73,7 @@ export default function Login() {
           </div>
         </div>
 
-        <div className="login-signup" onClick={()=>{navigate('/signup')}}>
+        <div className="login-signup" onClick={() => { window.location.href = "https://forms.gle/p7yHK9VgE1588KXT9"; }}>
           아직 체스턴 회원이 아닌가요?
         </div>
       </div>
