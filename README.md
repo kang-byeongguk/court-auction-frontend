@@ -60,7 +60,7 @@
 <br/>
 
 ## 🔨 프로젝트 구조
-![아키텍처](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbdKkCt%2FbtsL47x4Bb1%2F5SCHwI1OqEcHPxwRXZeTNk%2Fimg.jpg)
+![아키텍처](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FII4Jl%2FbtsMeTtFqDy%2FFfjVY7AdqO6p1TK4KCxyMK%2Fimg.png)
 
 ## 🔧 Stack
 
@@ -104,14 +104,24 @@
 
 **확장성**: 법원경매에 관심을 가진 사람들이 모이는 커뮤니티의 역할을 할 수 있다.
 
-**수익성**: 구독모델을 도입하여 안정적인 수입 창출이 가능하다.
-
 
 
 <br/>
 
 ## 🙋‍♂️ Developer
 
-|     Frontend | Backend|
-|---|---|
-|[강병국](https://github.com/kang-byeongguk)|[조은성](https://github.com/JoeUnsung)|
+<table>
+  <tr>
+    <th align="center">Frontend</th>
+    <th align="center">Backend & Data</th>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/kang-byeongguk">강병국</a></td>
+    <td align="center"><a href="https://github.com/JoeUnsung">조은성</a></td>
+  </tr>
+</table>
+
+
+
+
+
