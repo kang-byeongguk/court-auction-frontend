@@ -12,13 +12,11 @@ body, html {
   background-color: #f2f2f2; /* 전체 배경색과 맞추기 */
 }
 
-div{
-  box-sizing:border-box;
-}
+
 
 .nav-background{
   width:100%;
-  padding: 8px 12px;
+  padding: 2px 12px;
   background-color: rgba(255,255,255,0.3);
   backdrop-filter:blur(12px);
   position:fixed;
@@ -42,18 +40,25 @@ div{
 }
 
 .nav-item {
-  padding :4px 12px;
+  display:flex;
+  align-items: center;
+  padding :0 12px;
   color:#1c1e21;
   font-size:16px;
   font-weight:700;
+  transition: .2s color;
 
+
+}
+.nav-item:hover{
+color:#3182F6;
 }
 
 .main-background{
   background-color:#f2f2f2;
 }
 .main-container {
-  margin-top: 50px; /* nav-background의 height와 동일 */
+  margin-top: 70px; /* nav-background의 height와 동일 */
   padding: 1rem;
 }
 
