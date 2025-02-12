@@ -17,7 +17,7 @@ function App() {
 
       
       <Routes>
-        <Route path="/" element={<div><Navigation /><MainList /></div>}/>
+        <Route path="/" element={<div className='app-container'><Navigation /><MainList /></div>}/>
         <Route path="/detail/:id" element={<div><Navigation /><Detail /></div>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
