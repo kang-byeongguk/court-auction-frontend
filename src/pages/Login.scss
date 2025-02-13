@@ -1,73 +1,124 @@
 
 .login-background {
-  padding: 30px;
-
-  /* 수직/수평 가운데 정렬을 원하시면 Flex 등을 추가로 사용 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  padding: 0;
+  width:100%;
+  min-height:100vh;
+  background: radial-gradient(circle at top center, #e6f0fc, #ffffff);
 }
 
 .login-container {
   width: 70%;
   max-width: 500px;
   text-align: center;
-  position: relative; // 자식 요소 절대 위치 지정 위해 relative
-}
-
-/* 최상단 우측 X 버튼 스타일 */
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 5px;
-  /* 원하시는 디자인에 맞춰 아래 색상/배경 수정 가능 */
-  color: #666;
+  position: relative;
 }
 
 .login-form {
-  background-color: white;
-  padding: 30px;
+  background-color: rgba(255,255,255,0.3);
+  backdrop-filter:blur(12px);
+  padding: 60px 40px !important;
   margin-bottom: 20px;
+  border-radius:30px;
+  box-shadow:0 4px 12px rgba(0,0,0,.1)
 }
 
-.login-id,
-.login-pwd {
+.login {
   margin-bottom: 20px;
+  border: 2.5px solid rgba(0,0,0,.2);
+  border-radius:5px;
+}
+.login::placeholder {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.checkbox{
+  appearance: none;
+  -webkit-appearance: none;
+  border: 2px solid rgba(0,0,0,.2);
+  background-color: #ffffff;
+  padding:10px;
+  cursor: pointer;
+  transition: border-color .2s background-color .2s;
+  padding:10px;
+  position:relative;
+}
+.checkbox:hover{
+  border-color : #3182F6;
+  background-color:#c1dafc ;
+}
+.checkbox:focus {
+  outline: none;
+}
+.checkbox:checked{
+  border-color : #3182F6;
+  background-color:#3182F6 ;
+
+}
+.checkbox:checked::after {
+  content: '';
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 6px;    // 체크 표시의 너비 (필요에 따라 조정)
+  height: 12px;  // 체크 표시의 높이 (필요에 따라 조정)
+  border: 2px solid white;   // 체크 표시 색상: 흰색
+  border-width: 0 3px 3px 0;  // 오른쪽과 아래쪽에만 두께 적용
+  transform: translate(-50%, -60%) rotate(45deg);  // 중앙 정렬 및 45도 회전하여 체크 모양 구현
+}
+.checkbox:focus:not(:checked) {
+  border-color: rgba(0, 0, 0, 0.2);
 }
 
 .login-checkbox {
-  display: flex;
+    display: flex;
   align-items: center;
   justify-content: flex-start;
   margin-bottom: 20px;
 }
 
-/* 체크박스는 input 공통 스타일과 겹치지 않도록 따로 지정 */
 .login-checkbox input[type="checkbox"] {
   width: auto;
   margin-right: 5px;
 }
-
+input:hover,
+input:focus {
+  border: 2px solid #3182F6;
+}
 input {
   padding: 15px 10px;
   width: 100%;
-  font-size: 15px;
+  font-size: 16px;
   border-radius: 10px;
-  border: 0.5px solid black;
 }
 
-.login-button {
-  width: 100%;
-  border-radius: 5px;
-  padding: 15px 0;
-  cursor: pointer;
-}
+
 
 .login-signup {
   margin-top: 10px;
 }
+.nav{
+  position:fixed;
+  top: 10px;
+  width:100%;
+  padding: 0 30px;
+}
+.nav-bar{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-item {
+  display:flex;
+  align-items: center;
+  padding :0 12px;
+  color:#1c1e21;
+  font-weight:700;
+  transition: .2s color;
+  cursor:pointer;
+
+
+}
+.nav-item:hover{
+  color:#3182F6;
+  }

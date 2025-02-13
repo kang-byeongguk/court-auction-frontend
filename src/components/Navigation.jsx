@@ -19,7 +19,7 @@ export default function Navigation() {
           로그인
         </div>
         <div className="nav-item" onClick={() => { window.location.href = "https://forms.gle/p7yHK9VgE1588KXT9"; }}>
-          <button className='btn'>회원가입</button>
+          <button className='btn-md bg-blue'>회원가입</button>
         </div>
       </nav>
     </div>

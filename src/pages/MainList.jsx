@@ -99,7 +99,7 @@ function MainList() {
                   <td>
                     {saleDateForDisplay}
                     {saleStatus === '마감후' && (
-                      <span style={{ color: 'blue', marginLeft: 8 }}>
+                      <span className='text-blue' style={{  marginLeft: 8 }}>
                         마감후
                       </span>
                     )}
@@ -107,6 +107,7 @@ function MainList() {
                       <span style={{ color: 'red', marginLeft: 8 }}>
                         마감전
                       </span>
+          
                     )}
                   </td>
                   <td>{item.jwn_lst}</td>
@@ -132,7 +133,6 @@ function MainList() {
         >
           &laquo;3
         </button>
-
         {/* 뒤로 1칸 이동 */}
         <button
           disabled={currentPage <= 1}

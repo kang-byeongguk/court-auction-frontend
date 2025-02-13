@@ -2,17 +2,19 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router'; // 추가
 import axios from "axios";
 import "./Login.scss";
+import "../index.scss"
 import { useSelector } from "react-redux";
+import cheston from '../img/cheston.png'
 
 export default function Login() {
   const navigate = useNavigate(); // useNavigate 훅 사용
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const url = useSelector(state=>state)
+  const url = useSelector(state => state)
   // 버튼 클릭 시 서버로 GET 요청 (params에 로그인 정보 담음)
   const handleLogin = () => {
     axios
-      .get(url+"login", {
+      .get(url + "login", {
         params: {
           name,
           password,
@@ -34,17 +36,24 @@ export default function Login() {
 
   return (
     <div className="login-background">
+      <div className="nav">
+        <div className="nav-bar">
+          <div className="nav-item text-base" onClick={() => navigate('/')}>
+            <img src={cheston} width='60px' />
+            <span>Cheston</span>
+          </div>
+          <div className="nav-item text-2xl" onClick={() => { navigate(-1) }}>X</div>
+        </div>
+      </div>
+
       <div className="login-container">
-        {/* 최상단 우측에 X 버튼 */}
-        <span className="close-button" onClick={handleClose}>
-          X
-        </span>
-        
-        <h3>체스턴으로 로그인</h3>
-        
+
+
+        <p className="text-4xl bold">체스턴으로 로그인</p>
+
         <div className="login-form">
-          <div className="login-id">
-            <input
+          <div>
+            <input className="login"
               type="text"
               placeholder="이름"
               value={name}
@@ -52,8 +61,8 @@ export default function Login() {
             />
           </div>
 
-          <div className="login-pwd">
-            <input
+          <div >
+            <input className="login"
               type="password"
               placeholder="비밀번호"
               value={password}
@@ -62,13 +71,13 @@ export default function Login() {
           </div>
 
           <div className="login-checkbox">
-            <input type="checkbox" id="login-checkbox" />
+            <input className="checkbox" type="checkbox" id="login-checkbox" />
             <label htmlFor="login-checkbox">로그인 정보 저장하기</label>
           </div>
 
           <div>
-            <button className="login-button" onClick={handleLogin}>
-              다음
+            <button style={{width:'100%'}} className="btn-xl bg-blue" onClick={handleLogin}>
+              로그인하기
             </button>
           </div>
         </div>
