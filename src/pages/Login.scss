@@ -26,10 +26,20 @@
   margin-bottom: 20px;
   border: 2.5px solid rgba(0,0,0,.2);
   border-radius:5px;
+  transition: border-color .2s;
+}
+.login:hover{
+border-color:#3182F6;
+}
+.login:focus{
+  border-color: #3182F6;
+  outline:none;
 }
 .login::placeholder {
   font-weight: bold;
+  font-size:16px;
   color: rgba(0, 0, 0, 0.3);
+  transform: translateY(2px); 
 }
 
 .checkbox{
@@ -49,6 +59,7 @@
 }
 .checkbox:focus {
   outline: none;
+  
 }
 .checkbox:checked{
   border-color : #3182F6;
@@ -81,11 +92,9 @@
   width: auto;
   margin-right: 5px;
 }
-input:hover,
-input:focus {
-  border: 2px solid #3182F6;
-}
+
 input {
+  
   padding: 15px 10px;
   width: 100%;
   font-size: 16px;
