@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 import axios from 'axios';
 import FilterBar from '../components/FilterBar';
 import { formatDate, formatPrice, getSaleStatus, truncateAddress } from '../functions/functions';
-import './MainList.scss';
+import './MainList.css';
 import { useSelector } from 'react-redux';
 import { useQuery } from '@tanstack/react-query';
 
@@ -93,7 +93,7 @@ function MainList() {
                   onClick={() => navigate(`/detail/${item.id}`)}
                   style={{ cursor: 'pointer' }}
                 >
-                  <td>{item.case_num}</td>
+                  <td style={{textAlign:'left',paddingLeft:'35px'}}>{item.case_num}</td>
                   <td>{item.property_type}</td>
                   <td>{truncateAddress(item.location)}</td>
                   <td>{formatPrice(item.minimum_sale_prc)}</td>
@@ -130,14 +130,14 @@ function MainList() {
       {/* 페이지네이션 (순수 React/HTML) */}
       <div className="pagination-container" style={{ textAlign: 'center', marginTop: '1rem' }}>
         {/* 뒤로 3칸 이동 */}
-        <button
+        <button className='btn-md bg-grey'
           disabled={currentPage <= 1}
           onClick={() => handlePageChange(Math.max(1, currentPage - 3))}
         >
           &laquo;3
         </button>
         {/* 뒤로 1칸 이동 */}
-        <button
+        <button className='btn-lg bg-grey'
           disabled={currentPage <= 1}
           onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
           style={{ marginLeft: '5px' }}
@@ -146,12 +146,12 @@ function MainList() {
         </button>
 
         {/* 현재 페이지 / 전체 페이지 표시 */}
-        <span style={{ margin: '0 8px' }}>
+        <span style={{ margin: '0 8px',fontWeight:'500' }}>
           {currentPage} / {totalPages}
         </span>
 
         {/* 앞으로 1칸 이동 */}
-        <button
+        <button className='btn-lg bg-grey'
           disabled={currentPage >= totalPages}
           onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
         >
@@ -159,7 +159,7 @@ function MainList() {
         </button>
 
         {/* 앞으로 3칸 이동 */}
-        <button
+        <button className='btn-md bg-grey'
           disabled={currentPage >= totalPages}
           onClick={() => handlePageChange(Math.min(totalPages, currentPage + 3))}
           style={{ marginLeft: '5px' }}

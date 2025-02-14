@@ -1,0 +1,170 @@
+$메인블루 : #3182F6;
+$메인진한블루:#2c75dd;
+$메인레드: #f04452;
+$메인화이트:#ffffff;
+$메인그레이:#f2f4f6;
+$메인진한그레이:rgba(0,0,0,0.1);
+$메인블랙:#1c1e21;
+ body {
+   margin: 0;
+   padding: 0;
+
+ }
+
+ body {
+   font-family: "Pretendard", sans-serif;
+   color: #1c1e21;
+   background-color: #ffffff;
+   width: 100%;
+   height: 100%;
+
+
+ }
+
+ div,
+ input {
+   box-sizing: border-box;
+ }
+
+
+
+
+
+
+ h1 {
+   font-size: 3.2em;
+   line-height: 1.1;
+ }
+
+
+ .btn-md {
+   border-radius: 8px;
+   border: 1px solid transparent;
+   padding: 6px 8px;
+   font-size: 16px;
+   font-weight: 500;
+   font-family: "Pretendard", sans-serif;
+   cursor: pointer;
+ }
+
+ .btn-lg {
+  @extend .btn-md;
+  padding: 10px 20px;
+}
+
+.btn-xl{
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 12px 12px;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: "Pretendard", sans-serif;
+  cursor: pointer;
+}
+
+ .bg-blue {
+   background-color: $메인블루;
+   color: white;
+   transition: .2s background-color;
+ }
+
+ .bg-blue:hover {
+   background-color: $메인진한블루;
+ }
+
+.bg-grey{
+  background-color: $메인그레이;
+   color: $메인블랙;
+   transition: .2s background-color;
+
+   &:hover{
+    background-color: $메인진한그레이;
+   }
+}
+ .text-blue {
+   color: $메인블루;
+ }
+
+ .text-red {
+   color: $메인레드;
+ }
+
+ .text-base{
+  font-size:16px;
+ }
+
+.text-lg{
+  font-size:18px;
+ }
+
+ .text-xl{
+  font-size:20px;
+ }
+ .text-2xl{
+  font-size:24px;
+ }
+
+ .text-3xl{
+  font-size:30px;
+ }
+ .text-4xl{
+  font-size:35px;
+ }
+
+ .bold{
+  font-weight: 700;
+ }
+ .semibold{
+  font-weight:500;
+ }
+
+ .checkbox{
+  appearance: none;
+  -webkit-appearance: none;
+  border: 2px solid rgba(0,0,0,.2);
+  background-color: #ffffff;
+  padding:10px;
+  cursor: pointer;
+  transition: border-color .2s background-color .2s;
+  padding:10px;
+  position:relative;
+}
+.checkbox:hover{
+  border-color : #3182F6;
+  background-color:#c1dafc ;
+}
+.checkbox:focus {
+  outline: none;
+  
+}
+.checkbox:checked{
+  border-color : #3182F6;
+  background-color:#3182F6 ;
+
+}
+.checkbox:checked::after {
+  content: '';
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 6px;    // 체크 표시의 너비 (필요에 따라 조정)
+  height: 12px;  // 체크 표시의 높이 (필요에 따라 조정)
+  border: 2px solid white;   // 체크 표시 색상: 흰색
+  border-width: 0 3px 3px 0;  // 오른쪽과 아래쪽에만 두께 적용
+  transform: translate(-50%, -60%) rotate(45deg);  // 중앙 정렬 및 45도 회전하여 체크 모양 구현
+}
+.checkbox:focus:not(:checked) {
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.container-checkbox {
+    display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.container-checkbox input[type="checkbox"] {
+  width: auto;
+  margin-right: 5px;
+}

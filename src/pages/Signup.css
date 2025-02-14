@@ -1,0 +1,77 @@
+@charset "UTF-8";
+.login-background {
+  background-color: #eee;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-container {
+  width: 70%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+}
+
+/* 최상단 우측 X 버튼 스타일 */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px;
+  color: #666;
+}
+
+.login-form {
+  background-color: white;
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+.login-id,
+.login-pwd {
+  margin-bottom: 20px;
+}
+
+/* 에러 메시지 스타일 */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.login-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.login-checkbox input[type=checkbox] {
+  width: auto;
+  margin-right: 5px;
+}
+
+input {
+  padding: 15px 10px;
+  width: 100%;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 0.5px solid black;
+}
+
+.login-button {
+  width: 100%;
+  border-radius: 5px;
+  padding: 15px 0;
+  cursor: pointer;
+}
+
+.login-signup {
+  margin-top: 10px;
+}/*# sourceMappingURL=Signup.css.map */

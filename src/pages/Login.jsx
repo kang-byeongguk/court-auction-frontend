@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router'; // 추가
 import axios from "axios";
-import "./Login.scss";
-import "../index.scss"
+import "./Login.css";
+import "../global.css";
 import { useSelector } from "react-redux";
 import cheston from '../img/cheston.png'
 

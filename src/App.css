@@ -1,0 +1,79 @@
+@charset "UTF-8";
+/* App.scss */
+body, html {
+  background-color: #f2f2f2;
+}
+
+.app-container {
+  /* 네비게이션 높이(예: 75px) 만큼의 내부 여백을 주어,
+     자식의 마진 콜랩스가 부모 안쪽에서 해결되도록 함 */
+  padding-top: 1px;
+  background-color: #f2f2f2; /* 전체 배경색과 맞추기 */
+}
+
+.nav-background {
+  width: 100%;
+  padding: 2px 12px;
+  background-color: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  box-shadow: 0px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* nav-container 클래스로도 스타일 가능 */
+.nav-container {
+  /* 여유 높이 및 flex로 정렬 */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 4px 12px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  color: #1c1e21;
+  font-size: 16px;
+  font-weight: 700;
+  transition: 0.2s color;
+}
+
+.nav-item:hover {
+  color: #3182F6;
+}
+
+.main-background {
+  background-color: #f2f2f2;
+}
+
+.main-container {
+  margin-top: 70px; /* nav-background의 height와 동일 */
+  padding: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .nav-container, .main-container {
+    width: 750px;
+    padding: 0 15px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .nav-container, .main-container {
+    width: 970px;
+    padding: 0 15px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .nav-container, .main-container {
+    width: 1170px;
+    padding: 0 15px;
+  }
+}/*# sourceMappingURL=App.css.map */
