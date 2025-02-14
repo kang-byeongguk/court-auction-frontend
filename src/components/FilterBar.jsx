@@ -32,57 +32,6 @@ function FilterBar({ onFilter }) {
   };
 
   return (
-    // <Form className="p-3" style={{ border: '1px solid #ccc', marginBottom: '1rem' }} onSubmit={handleSubmit}>
-    //   <Row className="align-items-end">
-    //     {/* 담당법원 */}
-    //     <Col md={3}>
-    //       <Form.Group controlId="jwnLstSelect">
-    //         <Form.Label>담당법원</Form.Label>
-    //         <Form.Select value={selectedJwnLst} onChange={handleJwnLstChange}>
-    //           <option value="">전체</option>
-    //           <option value="서울중앙지방법원">서울중앙지방법원</option>
-    //           <option value="서울동부지방법원">서울동부지방법원</option>
-    //           <option value="서울남부지방법원">서울남부지방법원</option>
-    //           {/* 필요에 맞춰 추가 */}
-    //         </Form.Select>
-    //       </Form.Group>
-    //     </Col>
-
-    //     {/* 물건종류 */}
-    //     <Col md={3}>
-    //       <Form.Group controlId="propertyTypeSelect">
-    //         <Form.Label>물건종류</Form.Label>
-    //         <Form.Select value={selectedPropertyType} onChange={handlePropertyTypeChange}>
-    //           <option value="">전체</option>
-    //           <option value="다세대">다세대</option>
-    //           <option value="오피스텔">오피스텔</option>
-    //           <option value="주택">주택</option>
-    //           <option value="공장">공장</option>
-    //           {/* 필요에 맞춰 추가 */}
-    //         </Form.Select>
-    //       </Form.Group>
-    //     </Col>
-
-    //     {/* 체크박스: 마감 전만 보기 */}
-    //     <Col md={3}>
-    //       <Form.Check
-    //         type="checkbox"
-    //         id="onlyNotExpired"
-    //         label="매각기일 마감 전만 보기"
-    //         checked={onlyNotExpired}
-    //         onChange={handleOnlyNotExpiredChange}
-    //       />
-    //     </Col>
-
-    //     {/* 정렬 버튼 (흑백톤) */}
-    //     <Col md={3}>
-    //       {/* Bootstrap variant="dark" 또는 "secondary" 사용 */}
-    //       <Button variant="dark" type="submit">
-    //         정렬
-    //       </Button>
-    //     </Col>
-    //   </Row>
-    // </Form>
     <form className="filter-container" onSubmit={handleSubmit}>
       <div className="filter-item">
         <label htmlFor="jwnLstSelect">담당법원</label>
@@ -98,10 +47,18 @@ function FilterBar({ onFilter }) {
         <label htmlFor="propertyType">물건종류</label>
         <select id="propertyType" value={selectedPropertyType} onChange={handlePropertyTypeChange}>
         <option value="">전체</option>
+               <option value="아파트">아파트</option>
+               <option value="근린시설">근린시설</option>
                <option value="다세대">다세대</option>
+               <option value="기타">기타</option>
                <option value="오피스텔">오피스텔</option>
-              <option value="주택">주택</option>
-             <option value="공장">공장</option>
+               <option value="단독주택">단독주택</option>
+               <option value="상가">상가</option>
+               <option value="다가구주택">다가구주택</option>
+               <option value="빌라">빌라</option>
+               <option value="상가,오피스텔,근린시설">상가,오피스텔,근린시설</option>
+               <option value="연립주택">연립주택</option>
+               <option value="단독주택,다가구주택">단독주택,다가구주택</option>
         </select>
       </div>
       <div className="filter-item">
