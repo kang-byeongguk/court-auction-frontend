@@ -16,7 +16,6 @@ function MainList() {
   // 필터와 페이지 번호는 로컬 상태로 관리
   const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState({});
-  
   // 페이지당 보여줄 데이터 개수
   const pageSize = 10;
 
@@ -60,6 +59,7 @@ function MainList() {
   const listData = data.results;
   const count = data.count;
   const totalPages = Math.ceil(count / pageSize);
+  
 
   return (
     <div className="main-container">
@@ -75,6 +75,7 @@ function MainList() {
             <th>주소</th>
             <th>최저매각가격</th>
             <th>감정평가액</th>
+            <th>최저입찰가율</th>
             <th>매각기일</th>
             <th>담당법원</th>
           </tr>
@@ -82,6 +83,7 @@ function MainList() {
         <tbody>
           {listData && listData.length > 0 ? (
             listData.map((item, idx) => {
+              const minimum_bid_ratio = Math.floor((item.minimum_sale_prc / item.appraisal_val) * 1000) / 10;
               const saleDateForDisplay = formatDate(item.sale_date);
               const saleStatus = getSaleStatus(item.sale_date);
               return (
@@ -96,6 +98,7 @@ function MainList() {
                   <td>{truncateAddress(item.location)}</td>
                   <td>{formatPrice(item.minimum_sale_prc)}</td>
                   <td>{formatPrice(item.appraisal_val)}</td>
+                  <td>{minimum_bid_ratio+'%'}</td>
                   <td>
                     {saleDateForDisplay}
                     {saleStatus === '마감후' && (
