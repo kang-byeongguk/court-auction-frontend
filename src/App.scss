@@ -28,14 +28,16 @@ body, html {
 /* nav-container 클래스로도 스타일 가능 */
 .nav-container {
   /* 여유 높이 및 flex로 정렬 */
-  
+  box-sizing: border-box;
+  width:100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width:100%;
   height:100%;
-  padding: 4px 12px;
-  margin-left:auto;
-  margin-right:auto;
+  padding: 4px 30px;
+  // margin-left:auto;
+  // margin-right:auto;
  
 }
 
@@ -62,26 +64,26 @@ color:#3182F6;
   padding: 1rem;
 }
 
-@media screen and (min-width:768px){
-  .nav-container,.main-container{
-    width:750px;
-    padding: 0 15px;
+// @media screen and (min-width:768px){
+//   .nav-container,.main-container{
+//     width:750px;
+//     padding: 0 15px;
 
-  }
-}
+//   }
+// }
 
-@media screen and (min-width:992px){
-  .nav-container,.main-container{
-    width:970px;
-    padding: 0 15px;
-  }
-}
-@media screen and (min-width:1200px){
-  .nav-container,.main-container{
-    width:1170px;
-    padding: 0 15px;
-  }
-}
+// @media screen and (min-width:992px){
+//   .nav-container,.main-container{
+//     width:970px;
+//     padding: 0 15px;
+//   }
+// }
+// @media screen and (min-width:1200px){
+//   .nav-container,.main-container{
+//     width:1170px;
+//     padding: 0 15px;
+//   }
+// }
 
 
 

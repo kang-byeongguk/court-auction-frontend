@@ -162,9 +162,12 @@ h1 {
 table {
   border-collapse: collapse;
   text-align: center;
+  background-color: #ffffff;
+  color: #1c1e21;
 }
 
 .main-container {
+  margin-top: 80px !important;
   background: #ffffff;
   width: 80%;
   margin-left: auto;
