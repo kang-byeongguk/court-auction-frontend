@@ -37,19 +37,19 @@
 
 - **메인페이지** : 법원 경매 정보 제공
 
-![메인페이지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbQj4Y3%2FbtsMkZlYyjl%2FlVvw6Kbk3UDbkdSaLka5B0%2Fimg.png)
+![메인페이지](https://blog.kakaocdn.net/dn/s4WSV/btsMjM2rfH9/mo3gyQHSaae0gkaAV0fsok/img.png)
 
 - **필터링 기능** : 담당법원, 물건종류, 마감일 기준 필터링 제공 
 
-![선택페이지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdCcPcJ%2FbtsMkXBGkbj%2F05ZklKdJfvi1akJJfjTD5k%2Fimg.png)
+![선택페이지](https://blog.kakaocdn.net/dn/cmWCPy/btsMjS9cncC/QIPiF2P5f0GeMMlVWWvNM0/img.png)
 
 - **페이지네이션 기능** : 페이지네이션으로 탐색기능 제공
 
-![미리보기](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbkxk7U%2FbtsMkz17FcS%2FISNkkRNQIqm4pg0hfTW2S1%2Fimg.png)
+![미리보기](https://blog.kakaocdn.net/dn/bItAGm/btsMiZVMFvs/afiuhqTbCvYEIS5T97Kx71/img.png)
 
 - **상세페이지** : 경매 물건에 대한 상세정보 제공
 
-![상세페이지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fq2bVz%2FbtsMj8cSr2F%2FCTll739b5f7CHyGxTFJZX1%2Fimg.png)
+![상세페이지](https://blog.kakaocdn.net/dn/z3FEk/btsMjH1a67r/jQNEzvl8GHXx1swKtiz6O0/img.png)
 
 - **로그인 화면** : 로그인 기능 제공
 
