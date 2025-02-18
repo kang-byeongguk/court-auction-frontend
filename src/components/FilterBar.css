@@ -173,7 +173,9 @@ h1 {
   margin: 10px;
 }
 
-.filter-item select {
+/* 기존 select 기본 스타일 */
+.filter-item select,
+.select {
   display: inline-block;
   width: auto;
   border: none;
@@ -189,8 +191,18 @@ h1 {
   padding: 10px 0;
 }
 
-.filter-item select:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+/* 포커스 및 액티브 상태에서 발생하는 기본 테두리/아웃라인 제거 */
+.filter-item select:focus,
+.filter-item select:active,
+.filter-item select:focus-visible {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Firefox의 내부 포커스 border 제거 */
+.filter-item select::-moz-focus-inner {
+  border: 0;
 }
 
 /* select 오른쪽에 화살표 추가 (rotated ">" 모양: chevron down) */
