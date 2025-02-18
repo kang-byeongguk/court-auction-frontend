@@ -3,7 +3,10 @@ import { createSlice } from '@reduxjs/toolkit'
 
 export const urlSlice = createSlice({
   name: 'url',
-  initialState:"http://127.0.0.1:8000/api/",
+  //배포묭 IPv4 주소
+  initialState:"http://54.180.66.23/api",
+  //로컬용 url
+  // initialState:"http://127.0.0.1:8000/api/",
   reducers: {
   }
 })
