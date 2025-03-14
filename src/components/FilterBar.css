@@ -189,17 +189,10 @@ h1 {
   -webkit-appearance: none;
   -moz-appearance: none;
   padding: 10px 0;
+  cursor: pointer;
 }
 
 /* 포커스 및 액티브 상태에서 발생하는 기본 테두리/아웃라인 제거 */
-.filter-item select:focus,
-.filter-item select:active,
-.filter-item select:focus-visible {
-  outline: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
 /* Firefox의 내부 포커스 border 제거 */
 .filter-item select::-moz-focus-inner {
   border: 0;

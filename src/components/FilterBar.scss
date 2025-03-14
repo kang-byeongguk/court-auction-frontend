@@ -8,26 +8,9 @@
      position:relative;
      display:inline-block;
      font-weight: 500;
-margin:10px;
+      margin:10px;
  }
-// .filter-item select{
-//     display:inline-block;
-//     width:auto;
-//     border:none;
-//     background-color: index.$메인그레이;
-//     color: index.$메인블랙;
-//     font-size:16px;
-//     margin-left: 10px;
-//     text-align:center;
-//     border-radius:10px;
-//     appearance: none;
-//     -webkit-appearance: none;
-//      -moz-appearance: none;
-//      padding:10px 0;
-// }
-// .filter-item select:hover {
-//     background-color: index.$메인진한그레이;
-//   }
+
 /* 기존 select 기본 스타일 */
 .filter-item select,
 .select {
@@ -44,16 +27,17 @@ margin:10px;
   -webkit-appearance: none;
   -moz-appearance: none;
   padding: 10px 0;
+  cursor: pointer;
 }
 
 /* 포커스 및 액티브 상태에서 발생하는 기본 테두리/아웃라인 제거 */
-.filter-item select:focus,
-.filter-item select:active,
-.filter-item select:focus-visible{
-  outline: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
+// .filter-item select:focus,
+// .filter-item select:active,
+// .filter-item select:focus-visible{
+//   outline: none !important;
+//   border: none !important;
+//   box-shadow: none !important;
+// }
 
 /* Firefox의 내부 포커스 border 제거 */
 .filter-item select::-moz-focus-inner {
