@@ -1,79 +1,202 @@
-$메인블루 : #3182F6;
-$메인진한블루:#2c75dd;
-$메인레드: #f04452;
-$메인화이트:#ffffff;
-$메인그레이:#f2f4f6;
-$메인진한그레이:rgba(0,0,0,0.1);
-$메인블랙:#1c1e21;
- body {
-   margin: 0;
-   padding: 0;
-
- }
-
- body {
-   font-family: "Pretendard", sans-serif;
-   color: #1c1e21;
-   background-color: #ffffff;
-   width: 100%;
-   height: 100%;
 
 
- }
-
- div,
- input {
+html{
+  font-size: 16px;
+}
+ div, input, nav {
    box-sizing: border-box;
  }
 
+/*변수 저장소*/
+ $메인블루 : #3182F6;
+ $메인진한블루:#2c75dd;
+ $메인레드: #f04452;
+ $메인화이트:#ffffff;
+ $메인그레이:#f2f4f6;
+ $메인진한그레이:rgba(0,0,0,0.1);
+ $메인블랙:#1c1e21;
 
+$md:768px;
+$xl:1200px;
 
+@mixin 칼럼만들기($column, $breakpoint) {
+  $width : (100% / 12) * $column;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
 
+  @media screen and (min-width: $breakpoint){
+      flex: 0 0 $width;
+      max-width:$width;
+  }
+}
 
+// 반응형 레이아웃
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  margin-right:-15px;
+  margin-left:-15px;
+  .col-1{
+      @include 칼럼만들기(1,0px);
+  }
 
- h1 {
-   font-size: 3.2em;
-   line-height: 1.1;
- }
+  .col-2{
+      @include 칼럼만들기(2,0px);
+  }
+  .col-3{
+      @include 칼럼만들기(3,0px);
+  }
+  .col-4{
+      @include 칼럼만들기(4,0px);
+  }
+  .col-5{
+      @include 칼럼만들기(5,0px);
+  }
+  .col-6{
+      @include 칼럼만들기(6,0px);
+  }
+  .col-7{
+      @include 칼럼만들기(7,0px);
+  }
+  .col-8{
+      @include 칼럼만들기(8,0px);
+  }
+  .col-9{
+      @include 칼럼만들기(9,0px);
+  }
+  .col-10{
+      @include 칼럼만들기(10,0px);
+  }
+  .col-11{
+      @include 칼럼만들기(11,0px);
+  }
+  .col-12{
+      @include 칼럼만들기(11,0px);
+  }
+  
+  .col-md-1{
+      @include 칼럼만들기(1,$md);
+  }
+  .col-md-2{
+      @include 칼럼만들기(2,$md);
+  }
+  .col-md-3{
+      @include 칼럼만들기(3,$md);
+  }
+  .col-md-4{
+      @include 칼럼만들기(4,$md);
+  }
+  .col-md-5{
+      @include 칼럼만들기(5,$md);
+  }
+  .col-md-6{
+      @include 칼럼만들기(6,$md);
+  }
+  .col-md-7{
+      @include 칼럼만들기(7,$md);
+  }
+  .col-md-8{
+      @include 칼럼만들기(8,$md);
+  }
+  .col-md-9{
+      @include 칼럼만들기(9,$md);
+  }
+  .col-md-10{
+      @include 칼럼만들기(10,$md);
+  }
+  .col-md-11{
+      @include 칼럼만들기(11,$md);
+  }
+  .col-md-12{
+      @include 칼럼만들기(12,$md);
+  }
+  
+  .col-xl-1{
+      @include 칼럼만들기(1,$xl);
+  }
+  .col-xl-2{
+      @include 칼럼만들기(2,$xl);
+  }
 
+  .col-xl-3{
+      @include 칼럼만들기(3,$xl);
+  }
 
+  .col-xl-4{
+      @include 칼럼만들기(4,$xl);
+  }
+
+  .col-xl-5{
+      @include 칼럼만들기(5,$xl);
+  }
+
+  .col-xl-6{
+      @include 칼럼만들기(6,$xl);
+  }
+
+  .col-xl-7{
+      @include 칼럼만들기(7,$xl);
+  }
+
+  .col-xl-8{
+      @include 칼럼만들기(8,$xl);
+  }
+
+  .col-xl-9{
+      @include 칼럼만들기(9,$xl);
+  }
+
+  .col-xl-10{
+      @include 칼럼만들기(10,$xl);
+  }
+
+  .col-xl-11{
+      @include 칼럼만들기(11,$xl);
+  }
+
+  .col-xl-12{
+      @include 칼럼만들기(12,$xl);
+  }
+}
+
+%btn{
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Pretendard", sans-serif;
+  cursor: pointer;
+}
  .btn-md {
-   border-radius: 8px;
-   border: 1px solid transparent;
-   padding: 6px 8px;
-   font-size: 16px;
-   font-weight: 500;
-   font-family: "Pretendard", sans-serif;
-   cursor: pointer;
+  @extend %btn;
  }
 
  .btn-lg {
-  @extend .btn-md;
+  @extend %btn;
   padding: 10px 20px;
 }
 
 .btn-xl{
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 12px 12px;
+  @extend %btn;
   font-size: 20px;
-  font-weight: 500;
-  font-family: "Pretendard", sans-serif;
-  cursor: pointer;
+  padding: 12px 12px;
 }
 
  .bg-blue {
    background-color: $메인블루;
    color: white;
    transition: .2s background-color;
+
+   &:hover{
+    background-color: $메인진한블루;
+   }
  }
 
- .bg-blue:hover {
-   background-color: $메인진한블루;
- }
 
 .bg-grey{
-  background-color: $메인그레이;
+   background-color: $메인그레이;
    color: $메인블랙;
    transition: .2s background-color;
 
@@ -81,41 +204,60 @@ $메인블랙:#1c1e21;
     background-color: $메인진한그레이;
    }
 }
- .text-blue {
+ .blue {
    color: $메인블루;
  }
 
- .text-red {
+ .red {
    color: $메인레드;
  }
 
- .text-base{
-  font-size:16px;
+ .fs-1{
+  font-size: 2.5rem;
  }
+ .fs-2{
+  font-size: 2rem;
+}
+.fs-3{
+  font-size: 1.75rem;
+ }
+ .fs-4{
+  font-size: 1.5rem;
+ }
+ .fs-5{
+  font-size: 1.25rem;
+ }
+.fs-6{
+  font-size: 1rem;
+}
 
-.text-lg{
-  font-size:18px;
- }
 
- .text-xl{
-  font-size:20px;
- }
- .text-2xl{
-  font-size:24px;
- }
-
- .text-3xl{
-  font-size:30px;
- }
- .text-4xl{
-  font-size:35px;
- }
-
- .bold{
+ .fw-bold{
   font-weight: 700;
  }
- .semibold{
+ .fw-semibold{
   font-weight:500;
+ }
+ .fw-normal{
+  font-weight:400;
+ }
+ .fw-light{
+  font-weight:300;
+ }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Pretendard", sans-serif;
+  color: $메인블랙;
+  background-color: $메인화이트;
+  width: 100%;
+  height: 100%;
+}
+
+ h1 {
+   font-size: 3.2em;
+   line-height: 1.1;
  }
 
  .checkbox{
