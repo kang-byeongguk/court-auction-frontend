@@ -272,7 +272,7 @@ body {
   position:relative;
 }
 .checkbox:hover{
-  border-color : #3182F6;
+  border-color : $메인블루;
   background-color:#c1dafc ;
 }
 .checkbox:focus {
@@ -280,8 +280,8 @@ body {
   
 }
 .checkbox:checked{
-  border-color : #3182F6;
-  background-color:#3182F6 ;
+  border-color : $메인블루;
+  background-color:$메인블루;
 
 }
 .checkbox:checked::after {
