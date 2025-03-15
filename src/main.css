@@ -142,8 +142,8 @@ div, input, nav {
 }
 @media screen and (min-width: 0px) {
   .row .col-12 {
-    flex: 0 0 91.6666666667%;
-    max-width: 91.6666666667%;
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
 .row .col-md-1 {
@@ -410,6 +410,138 @@ div, input, nav {
     max-width: 100%;
   }
 }
+.row .col-xxl-1 {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media screen and (min-width: 1400px) {
+  .row .col-xxl-1 {
+    flex: 0 0 8.3333333333%;
+    max-width: 8.3333333333%;
+  }
+}
+.row .col-xxl-2 {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media screen and (min-width: 1400px) {
+  .row .col-xxl-2 {
+    flex: 0 0 16.6666666667%;
+    max-width: 16.6666666667%;
+  }
+}
+.row .col-xxl-3 {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media screen and (min-width: 1400px) {
+  .row .col-xxl-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+.row .col-xxl-4 {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media screen and (min-width: 1400px) {
+  .row .col-xxl-4 {
+    flex: 0 0 33.3333333333%;
+    max-width: 33.3333333333%;
+  }
+}
+.row .col-xxl-5 {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media screen and (min-width: 1400px) {
+  .row .col-xxl-5 {
+    flex: 0 0 41.6666666667%;
+    max-width: 41.6666666667%;
+  }
+}
+.row .col-xxl-6 {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media screen and (min-width: 1400px) {
+  .row .col-xxl-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+.row .col-xxl-7 {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media screen and (min-width: 1400px) {
+  .row .col-xxl-7 {
+    flex: 0 0 58.3333333333%;
+    max-width: 58.3333333333%;
+  }
+}
+.row .col-xxl-8 {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media screen and (min-width: 1400px) {
+  .row .col-xxl-8 {
+    flex: 0 0 66.6666666667%;
+    max-width: 66.6666666667%;
+  }
+}
+.row .col-xxl-9 {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media screen and (min-width: 1400px) {
+  .row .col-xxl-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+}
+.row .col-xxl-10 {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media screen and (min-width: 1400px) {
+  .row .col-xxl-10 {
+    flex: 0 0 83.3333333333%;
+    max-width: 83.3333333333%;
+  }
+}
+.row .col-xxl-11 {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media screen and (min-width: 1400px) {
+  .row .col-xxl-11 {
+    flex: 0 0 91.6666666667%;
+    max-width: 91.6666666667%;
+  }
+}
+.row .col-xxl-12 {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media screen and (min-width: 1400px) {
+  .row .col-xxl-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
 
 .btn-xl, .btn-lg, .btn-md {
   padding: 6px 8px;
@@ -485,11 +617,11 @@ div, input, nav {
 }
 
 .fw-semibold {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .fw-normal {
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .fw-light {
@@ -509,59 +641,4 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
-
-.checkbox {
-  -moz-appearance: none;
-       appearance: none;
-  -webkit-appearance: none;
-  border: 2px solid rgba(0, 0, 0, 0.2);
-  background-color: #ffffff;
-  padding: 10px;
-  cursor: pointer;
-  transition: border-color 0.2s background-color 0.2s;
-  padding: 10px;
-  position: relative;
-}
-
-.checkbox:hover {
-  border-color: #3182F6;
-  background-color: #c1dafc;
-}
-
-.checkbox:focus {
-  outline: none;
-}
-
-.checkbox:checked {
-  border-color: #3182F6;
-  background-color: #3182F6;
-}
-
-.checkbox:checked::after {
-  content: "";
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  width: 6px;
-  height: 12px;
-  border: 2px solid white;
-  border-width: 0 3px 3px 0;
-  transform: translate(-50%, -60%) rotate(45deg);
-}
-
-.checkbox:focus:not(:checked) {
-  border-color: rgba(0, 0, 0, 0.2);
-}
-
-.container-checkbox {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 20px;
-}
-
-.container-checkbox input[type=checkbox] {
-  width: auto;
-  margin-right: 5px;
 }/*# sourceMappingURL=main.css.map */

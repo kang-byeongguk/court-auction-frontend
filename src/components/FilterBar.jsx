@@ -32,10 +32,11 @@ function FilterBar({ onFilter }) {
   };
 
   return (
-    <form className="filter-container" onSubmit={handleSubmit}>
-      <div className="filter-item filter-select">
+    <form  onSubmit={handleSubmit}>
+      <fieldset className="row">
+      <div className="col-12  col-xl-3 col-xxl-2 item" style={{marginTop:"10px"}}>
         <label htmlFor="jwnLstSelect">담당법원</label>
-        <select className='select bg-grey' id="jwnLstSelect" value={selectedJwnLst} onChange={handleJwnLstChange}>
+        <select className='bg-grey' id="jwnLstSelect" value={selectedJwnLst} onChange={handleJwnLstChange}>
         <option value="">전체</option>
               <option value="서울중앙지방법원">서울중앙지방법원</option>
                <option value="서울동부지방법원">서울동부지방법원</option>
@@ -43,9 +44,9 @@ function FilterBar({ onFilter }) {
         </select>
       </div>
       
-      <div className="filter-item filter-select">
+      <div className="col-12  col-xl-3 col-xxl-2 item" style={{marginTop:"10px"}}>
         <label htmlFor="propertyType">물건종류</label>
-        <select className='select bg-grey' id="propertyType" value={selectedPropertyType} onChange={handlePropertyTypeChange}>
+        <select className=' bg-grey' id="propertyType" value={selectedPropertyType} onChange={handlePropertyTypeChange}>
         <option value="">전체</option>
                <option value="아파트">아파트</option>
                <option value="근린시설">근린시설</option>
@@ -61,17 +62,18 @@ function FilterBar({ onFilter }) {
                <option value="단독주택,다가구주택">단독주택,다가구주택</option>
         </select>
       </div>
-      <div className="filter-item">
-        <div className='container-checkbox' style={{position:'relative',top:'10px'}}>
+      <div className="col-12  col-xl-3 col-xxl-2 item" style={{marginTop:"10px"}}>
         <label htmlFor="onlyNotExpired">매각기일 마감 전만 보기</label>
         <input className='checkbox' type="checkbox" id="onlyNotExpired" checked={onlyNotExpired} onChange={handleOnlyNotExpiredChange}/>
         </div>
-        </div>
-      <div className="filter-item">
-        <button type="submit" className="btn-lg bg-grey  ">
+      <div className="col-12  col-xl-3 col-xxl-2 item" style={{marginTop:"10px"}}>
+      <label htmlFor="sorting">정렬하기</label>
+        <button id='sorting' type="submit" className="btn-lg bg-grey">
           정렬
         </button>
       </div>
+      </fieldset>
+      
   </form>
   );
 }

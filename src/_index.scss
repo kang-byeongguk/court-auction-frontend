@@ -18,9 +18,10 @@ html{
 
 $md:768px;
 $xl:1200px;
+$xxl:1400px;
 
 @mixin 칼럼만들기($column, $breakpoint) {
-  $width : (100% / 12) * $column;
+  $width: calc(100% / 12) * $column;
   width: 100%;
   padding-left: 15px;
   padding-right: 15px;
@@ -72,7 +73,7 @@ $xl:1200px;
       @include 칼럼만들기(11,0px);
   }
   .col-12{
-      @include 칼럼만들기(11,0px);
+      @include 칼럼만들기(12,0px);
   }
   
   .col-md-1{
@@ -158,6 +159,52 @@ $xl:1200px;
   .col-xl-12{
       @include 칼럼만들기(12,$xl);
   }
+  .col-xxl-1{
+    @include 칼럼만들기(1,$xxl);
+}
+.col-xxl-2{
+    @include 칼럼만들기(2,$xxl);
+}
+
+.col-xxl-3{
+    @include 칼럼만들기(3,$xxl);
+}
+
+.col-xxl-4{
+    @include 칼럼만들기(4,$xxl);
+}
+
+.col-xxl-5{
+    @include 칼럼만들기(5,$xxl);
+}
+
+.col-xxl-6{
+    @include 칼럼만들기(6,$xxl);
+}
+
+.col-xxl-7{
+    @include 칼럼만들기(7,$xxl);
+}
+
+.col-xxl-8{
+    @include 칼럼만들기(8,$xxl);
+}
+
+.col-xxl-9{
+    @include 칼럼만들기(9,$xxl);
+}
+
+.col-xxl-10{
+    @include 칼럼만들기(10,$xxl);
+}
+
+.col-xxl-11{
+    @include 칼럼만들기(11,$xxl);
+}
+
+.col-xxl-12{
+    @include 칼럼만들기(12,$xxl);
+}
 }
 
 %btn{
@@ -236,10 +283,10 @@ $xl:1200px;
   font-weight: 700;
  }
  .fw-semibold{
-  font-weight:500;
+  font-weight:600;
  }
  .fw-normal{
-  font-weight:400;
+  font-weight:500;
  }
  .fw-light{
   font-weight:300;
@@ -260,53 +307,3 @@ body {
    line-height: 1.1;
  }
 
- .checkbox{
-  appearance: none;
-  -webkit-appearance: none;
-  border: 2px solid rgba(0,0,0,.2);
-  background-color: #ffffff;
-  padding:10px;
-  cursor: pointer;
-  transition: border-color .2s background-color .2s;
-  padding:10px;
-  position:relative;
-}
-.checkbox:hover{
-  border-color : $메인블루;
-  background-color:#c1dafc ;
-}
-.checkbox:focus {
-  outline: none;
-  
-}
-.checkbox:checked{
-  border-color : $메인블루;
-  background-color:$메인블루;
-
-}
-.checkbox:checked::after {
-  content: '';
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  width: 6px;    // 체크 표시의 너비 (필요에 따라 조정)
-  height: 12px;  // 체크 표시의 높이 (필요에 따라 조정)
-  border: 2px solid white;   // 체크 표시 색상: 흰색
-  border-width: 0 3px 3px 0;  // 오른쪽과 아래쪽에만 두께 적용
-  transform: translate(-50%, -60%) rotate(45deg);  // 중앙 정렬 및 45도 회전하여 체크 모양 구현
-}
-.checkbox:focus:not(:checked) {
-  border-color: rgba(0, 0, 0, 0.2);
-}
-
-.container-checkbox {
-    display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 20px;
-}
-
-.container-checkbox input[type="checkbox"] {
-  width: auto;
-  margin-right: 5px;
-}
