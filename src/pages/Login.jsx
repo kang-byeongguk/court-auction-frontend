@@ -36,22 +36,22 @@ export default function Login() {
 
   return (
     <div className="login-background">
-      <div className="nav">
-        <div className="nav-bar">
+      <header className="nav">
+        <nav className="nav-bar">
           <div className="nav-item text-base" onClick={() => navigate('/')}>
-            <img src={cheston} width='60px' />
+            <img src={cheston} width='60px' alt="Cheston 로고" />
             <span>Cheston</span>
           </div>
           <div className="nav-item text-2xl" onClick={() => { navigate(-1) }}>X</div>
-        </div>
-      </div>
+        </nav>
+      </header>
 
-      <div className="login-container">
+      <main className="login-container">
 
 
         <p className="text-4xl bold">체스턴으로 로그인</p>
 
-        <div className="login-form">
+        <form className="login-form">
           <div>
             <input className="login"
               type="text"
@@ -80,12 +80,12 @@ export default function Login() {
               로그인하기
             </button>
           </div>
-        </div>
+        </form>
 
         <div className="login-signup" onClick={() => { window.location.href = "https://forms.gle/p7yHK9VgE1588KXT9"; }}>
           아직 체스턴 회원이 아닌가요?
         </div>
-      </div>
+      </main>
     </div>
   );
 }

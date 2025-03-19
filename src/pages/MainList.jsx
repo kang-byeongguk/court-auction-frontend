@@ -62,11 +62,12 @@ function MainList() {
   
 
   return (
-    <div className="main-container">
-      {/* 필터 컴포넌트 */}
-      <FilterBar onFilter={handleFilter} />
-
+    <main className="main-container">
+      <section>
+        <FilterBar onFilter={handleFilter} />
+      </section>
       {/* 테이블 */}
+      <section>
       <table className="main-table">
         <thead>
           <tr>
@@ -126,9 +127,10 @@ function MainList() {
           )}
         </tbody>
       </table>
+      </section>
 
       {/* 페이지네이션 (순수 React/HTML) */}
-      <div className="pagination-container" style={{ textAlign: 'center', marginTop: '1rem' }}>
+      <nav className="pagination-container" style={{ textAlign: 'center', marginTop: '1rem' }}>
         {/* 뒤로 3칸 이동 */}
         <button className='btn-md bg-grey'
           disabled={currentPage <= 1}
@@ -166,8 +168,8 @@ function MainList() {
         >
           3&raquo;
         </button>
-      </div>
-    </div>
+      </nav>
+    </main>
   );
 }
 

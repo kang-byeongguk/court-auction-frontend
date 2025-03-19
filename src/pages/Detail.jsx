@@ -52,9 +52,9 @@ function Detail() {
   } = item;
 
   return (
-    <div className="detail-container">
+    <main className="detail-container">
       {/* 기본정보 섹션 */}
-      <div>
+      <section>
         <h4 className="section-title">기본정보</h4>
         <hr />
         {/* 3×3 표 (법원정보 ~ 비고) */}
@@ -117,10 +117,10 @@ function Detail() {
           </tbody>
         </table>
 
-      </div>
+      </section>
 
       {/* 경매정보 섹션 */}
-      <div className="section">
+      <section className="section">
         <h4 className="section-title">경매정보</h4>
         <hr />
         {due_dates && due_dates.length > 0 && (
@@ -147,10 +147,10 @@ function Detail() {
             </tbody>
           </table>
         )}
-      </div>
+      </section>
 
       {/* 세부정보 섹션 */}
-      <div className="section">
+      <section className="section">
         <h4 className="section-title">세부정보</h4>
         <hr />
         {case_details && case_details.length > 0 && (
@@ -173,8 +173,8 @@ function Detail() {
             </tbody>
           </table>
         )}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 
